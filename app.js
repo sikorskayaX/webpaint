@@ -60,9 +60,12 @@ function handleSave(){
 }
 
 function handleClear(){
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if(confirm("Вы уверены?")) {
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
 }
+
 
 if(canvas){
     canvas.addEventListener('mousemove', onMouseMove)
