@@ -8,19 +8,19 @@
     
 </head>
 <body>
-    <h1>Paint</h1>
-    <canvas id = "jsCanvas" class="canvas"></canvas>
-    <div class = "colors">
-        <div class = "controls_range">
-            <input type="range" id = "jsRange" min = "0.1" max="10.0" value="2.5" step="0.1">
-        </div>
+    
+    <div class="centr">
+        <h1>Paint</h1>
+        <canvas id = "jsCanvas" class="canvas"></canvas>
         <div class = "color_buttons">
+            <input type="range" id = "jsRange" min = "0.1" max="10.0" value="2.5" step="0.1">
             <button id = "jsMode">Bucket</button>
             <button id = "jsEraser">Eraser</button>
             <button id = "jsClear">Clear</button>
             <button id = "jsSave">Save</button>
         </div>
-        <div class = "controls_colors" id = "jsColors">
+    </div>
+    <div class = "controls_colors" id = "jsColors">
             <div class = "controls_color jsColor" style = "background-color: rgb(75, 75, 75)"></div>
             <div class = "controls_color jsColor" style = "background-color: rgb(226, 111, 111)"></div>
             <div class = "controls_color jsColor" style = "background-color: rgb(245, 194, 160)"></div>
@@ -29,8 +29,7 @@
             <div class = "controls_color jsColor" style = "background-color: rgb(137, 200, 221)"></div>
             <div class = "controls_color jsColor" style = "background-color: rgb(195, 161, 209)"></div>
             <input type="color" id="jsColorCircle" />
-        </div>
     </div>
-    <script src = "app.js"></script>
+<script src = "app.js"></script>
 </body>
 </html>
