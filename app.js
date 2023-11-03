@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName('jsColor');
 const range = document.getElementById('jsRange');
 const mode = document.getElementById('jsMode');
+const eraser = document.getElementById('jsEraser');
 const saveBtn = document.getElementById('jsSave');
 const clearBtn = document.getElementById('jsClear');
 const colorCrcl = document.getElementById('jsColorCircle');
@@ -54,7 +55,7 @@ function handleSave(){
     const image = canvas.toDataURL();
     const link = document.createElement('a');
     link.href = image;
-    link.download = "Webpaint [Export]";
+    link.download = "mypicture";
     link.click();
 }
 
@@ -67,7 +68,6 @@ if(canvas){
     canvas.addEventListener('mousemove', onMouseMove)
     canvas.addEventListener('mousedown', onMouseDown);
     canvas.addEventListener('mouseup', stopPainting);
-    canvas.addEventListener('mouseleave', stopPainting);
     canvas.addEventListener('click', handleCanvasClick);
     canvas.addEventListener('contextmenu', hanndleCM);
 }
@@ -109,6 +109,14 @@ function handleCanvasClick(){
     }
 }
 
+function handleEraser(){
+    ctx.strokeStyle = 'white';
+    ctx.fillStyle = 'white';
+    colorCrcl.value = '#' + ctx.strokeStyle.substring(1);
+    ctx.lineWidth = 6.0;
+    range.value = 6.0;
+}
+
 Array.from(colors).forEach(color => color.addEventListener('click', handleColorClick));
 
 if (range){
@@ -129,4 +137,8 @@ if(clearBtn){
 
 if(colorCrcl){
     colorCrcl.addEventListener('input', handleCircleColor);
+}
+
+if (eraser){
+    eraser.addEventListener('click', handleEraser);
 }
