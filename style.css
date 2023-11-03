@@ -70,3 +70,24 @@ h1{
     margin-top: 20px;
     accent-color: rgb(253, 202, 202);
 }
+
+#jsColorCircle {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0 0 20px;
+  }
+  #jsColorCircle::-webkit-color-swatch {
+    border-radius: 15px;
+    border: none;
+  }
+  #jsColorCircle::-moz-color-swatch {
+    border-radius: 15px;
+    border: none;
+  }
+

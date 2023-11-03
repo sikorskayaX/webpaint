@@ -5,13 +5,14 @@ const range = document.getElementById('jsRange');
 const mode = document.getElementById('jsMode');
 const saveBtn = document.getElementById('jsSave');
 const clearBtn = document.getElementById('jsClear');
+const colorCrcl = document.getElementById('jsColorCircle');
 
-const INITIAL_COLOR = 'rgb(20, 20, 20)';
+let INITIAL_COLOR = '#141414';
 
 canvas.height = 500;
 canvas.width = 800;
 
-ctx.fillStyle = 'white';
+ctx.fillStyle = '#ffffff';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.lineWidth = 2.5;
 ctx.strokeStyle = INITIAL_COLOR;
@@ -58,6 +59,7 @@ function handleSave(){
 }
 
 function handleClear(){
+    ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
@@ -70,10 +72,18 @@ if(canvas){
     canvas.addEventListener('contextmenu', hanndleCM);
 }
 
+function handleCircleColor(event){
+    const colorC = event.target.value;
+    ctx.strokeStyle = colorC;
+    ctx.fillStyle = colorC;
+}
+
+
 function handleColorClick(event){
     const color = event.target.style.backgroundColor;
     ctx.strokeStyle = color;
     ctx.fillStyle = color;
+    colorCrcl.value = '#' + ctx.strokeStyle.substring(1);
 }
 
 function handleRangeChange(event){
@@ -115,4 +125,8 @@ if(saveBtn){
 
 if(clearBtn){
     clearBtn.addEventListener('click', handleClear);
+}
+
+if(colorCrcl){
+    colorCrcl.addEventListener('input', handleCircleColor);
 }
