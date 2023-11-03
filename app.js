@@ -4,6 +4,7 @@ const colors = document.getElementsByClassName('jsColor');
 const range = document.getElementById('jsRange');
 const mode = document.getElementById('jsMode');
 const saveBtn = document.getElementById('jsSave');
+const clearBtn = document.getElementById('jsClear');
 
 const INITIAL_COLOR = 'rgb(20, 20, 20)';
 
@@ -56,6 +57,10 @@ function handleSave(){
     link.click();
 }
 
+function handleClear(){
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 if(canvas){
     canvas.addEventListener('mousemove', onMouseMove)
     canvas.addEventListener('mousedown', onMouseDown);
@@ -106,4 +111,8 @@ if (mode){
 
 if(saveBtn){
     saveBtn.addEventListener('click', handleSave);
+}
+
+if(clearBtn){
+    clearBtn.addEventListener('click', handleClear);
 }
